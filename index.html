@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Bernard St. Charles | Data & Operations Professional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'network-bg': '#070b14',
+                        'network-card': 'rgba(15, 23, 42, 0.6)',
+                        'network-accent': '#00f0ff',
+                        'network-accent-glow': 'rgba(0, 240, 255, 0.5)',
+                        'network-secondary': '#818cf8',
+                        'network-text': '#e2e8f0',
+                        'network-muted': '#94a3b8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glassmorphism and Background Styles */
+        body {
+            background-color: #070b14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #111827 0%, #070b14 100%);
+        }
+
+        .glass-card {
+            background: var(--tw-colors-network-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 10px 40px -10px rgba(0, 240, 255, 0.2), 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .nav-glass {
+            background: rgba(7, 11, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Glowing text effect for specific accents */
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        /* Timeline specific styles */
+        .timeline-line {
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(0, 240, 255, 0.5), rgba(129, 140, 248, 0.2));
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-network-accent selection:text-black">
+
+    <div id="canvas-container">
+        <canvas id="networkCanvas"></canvas>
+    </div>
+
+    <nav class="nav-glass fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="font-display font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                    <i class="fa-solid fa-chart-network text-network-accent"></i>
+                    Jean Bernard St. Charles
+                </a>
+                <div class="hidden md:block">
+                    <ul class="flex space-x-8 font-mono text-sm">
+                        <li><a href="#about" class="text-network-muted hover:text-network-accent transition-colors duration-300">01. Capabilities</a></li>
+                        <li><a href="#projects" class="text-network-muted hover:text-network-accent transition-colors duration-300">02. Nodes & Projects</a></li>
+                        <li><a href="#experience" class="text-network-muted hover:text-network-accent transition-colors duration-300">03. Career Network</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <section id="home" class="min-h-screen flex items-center relative py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+                <div class="max-w-3xl">
+                    <span class="font-mono text-network-accent mb-4 block tracking-wider uppercase text-sm">
+                        <i class="fa-solid fa-bolt mr-2"></i>Systems // Data // Strategy
+                    </span>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+                        Connecting the dots between <span class="text-transparent bg-clip-text bg-gradient-to-r from-network-accent to-network-secondary text-glow">raw data</span> and strategic operations.
+                    </h1>
+                    <p class="text-xl text-network-muted mb-10 leading-relaxed max-w-2xl font-light">
+                        I blend a deep background in logistics and hospitality operations with rigorous data analytics to build systems that optimize performance, uncover market gaps, and drive strategic growth.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="group relative px-6 py-3 font-mono text-sm font-bold text-black bg-network-accent rounded overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                            <span class="relative z-10">Explore the Network</span>
+                        </a>
+                        <a href="#experience" class="px-6 py-3 font-mono text-sm font-bold text-network-text border border-network-muted rounded hover:border-network-accent hover:text-network-accent transition-all duration-300">
+                            View Career Trajectory
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-12 flex items-center gap-4">
+                    <span class="text-network-accent font-mono text-xl">01.</span> Capabilities & Credentials
+                    <div class="h-px bg-slate-800 flex-1 ml-4"></div>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Technical Infrastructure -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-700/50">
+                            <div class="w-12 h-12 rounded-lg bg-network-accent/10 flex items-center justify-center text-network-accent text-xl">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <h3 class="font-display text-2xl font-semibold text-white">Technical Infrastructure</h3>
+                        </div>
+                        <p class="text-network-muted mb-6 leading-relaxed">
+                            Proficient in building the end-to-end data lifecycle, from extraction and structuring to visualization and strategic deployment.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">SQL</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Python</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Google BigQuery</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Tableau</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Advanced Excel</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Data Cleaning</span>
+                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Logistics Planning</span>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-700/50">
+                            <div class="w-12 h-12 rounded-lg bg-network-secondary/10 flex items-center justify-center text-network-secondary text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="font-display text-2xl font-semibold text-white">Education & Certifications</h3>
+                        </div>
+                        <ul class="space-y-6">
+                            <li class="relative pl-6">
+                                <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-secondary"></div>
+                                <h4 class="text-white font-semibold">B.A. Business Administration, Mass Comm.</h4>
+                                <p class="text-sm font-mono text-network-muted mt-1">University of Florida | Dec 2021</p>
+                            </li>
+                            <li class="relative pl-6">
+                                <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-secondary"></div>
+                                <h4 class="text-white font-semibold">Data Analytics Fellowship</h4>
+                                <p class="text-sm font-mono text-network-muted mt-1">COOP Careers | Completed Jun 2026</p>
+                            </li>
+                            <li class="relative pl-6">
+                                <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-accent"></div>
+                                <div class="flex items-start justify-between flex-wrap gap-2">
+                                    <h4 class="text-white font-semibold">Google Data Analytics Certificate</h4>
+                                    <a href="https://coursera.org/verify/697TOE4QZVVO" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 border border-network-accent/30 rounded hover:bg-network-accent hover:text-black transition-colors">
+                                        <i class="fa-solid fa-check-circle"></i> VERIFY
+                                    </a>
+                                </div>
+                                <p class="text-sm font-mono text-network-muted mt-1">Coursera | Completed Apr/Jun 2026</p>
+                                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Modules: Foundations, Prepare Data, Analyze Data, Ask Questions, Share Data.</p>
+                            </li>
+                            <li class="relative pl-6">
+                                <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-accent"></div>
+                                <div class="flex items-start justify-between flex-wrap gap-2">
+                                    <h4 class="text-white font-semibold">Google AI Essentials Specialization</h4>
+                                    <a href="https://coursera.org/verify/specialization/01USTQPNNX37" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 border border-network-accent/30 rounded hover:bg-network-accent hover:text-black transition-colors">
+                                        <i class="fa-solid fa-check-circle"></i> VERIFY
+                                    </a>
+                                </div>
+                                <p class="text-sm font-mono text-network-muted mt-1">Coursera | Completed Jun 2026</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-12 flex items-center gap-4">
+                    <span class="text-network-accent font-mono text-xl">02.</span> Nodes & Projects
+                    <div class="h-px bg-slate-800 flex-1 ml-4"></div>
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- NEW: Loews Inventory Tracker -->
+                    <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
+                        <div class="p-8 flex-grow">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                                <span class="px-3 py-1 text-xs font-mono text-emerald-400 bg-emerald-500/10 rounded-full">In Progress</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Loews Inventory Dashboard</h3>
+                            <p class="text-network-muted mb-4 text-sm leading-relaxed">
+                                An automated Excel dashboard designed to streamline inventory tracking and reduce supply waste for Emack & Bolio's marketplace at Loews Hotels.
+                            </p>
+                            <p class="text-network-muted text-sm leading-relaxed mb-6">
+                                <strong>Architecture:</strong> Engineered using advanced Excel functions (VLOOKUP, Pivot Tables, Conditional Formatting) to provide real-time alerts on low stock and track historical usage trends.
+                            </p>
+                            <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">Excel</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-emerald-400 font-mono">Infrastructure</span>
+                                </div>
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">Live</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-emerald-400 font-mono">Status</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
+                            <button onclick="event.preventDefault(); const og = this.innerHTML; this.innerHTML = '<i class=\'fa-solid fa-clock\'></i> Coming Soon!'; setTimeout(() => this.innerHTML = og, 2000);" class="px-4 py-2 text-sm font-mono font-bold text-black bg-emerald-400 rounded hover:bg-emerald-300 transition-colors w-full text-center">
+                                View Dashboard
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bellabeat Project -->
+                    <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
+                        <div class="p-8 flex-grow">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl border border-pink-500/20">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">Bellabeat Competitive Analysis</h3>
+                            <p class="text-network-muted mb-4 text-sm leading-relaxed">
+                                Managed the end-to-end strategy for the IVY Wellness Coach, from hands-on data processing to final budget allocation.
+                            </p>
+                            <p class="text-network-muted text-sm leading-relaxed mb-6">
+                                <strong>Architecture:</strong> Personally cleaned and structured raw multi-channel qualitative data. This deep-dive into the data directly informed the strategic roadmap, allocating a $75,000 Q2 marketing budget.
+                            </p>
+                            <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">10k+</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-pink-400 font-mono">Reviews Cleaned</span>
+                                </div>
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">1.8x</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-pink-400 font-mono">Projected ROI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
+                            <a href="https://canva.link/xb75zaazhiy2std" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-pink-400 rounded hover:bg-pink-300 transition-colors flex-1 text-center">
+                                View Case Study
+                            </a>
+                            <a href="IVY_Campaign_Q2_Analysis_Full_Data.xlsx" download class="px-4 py-2 text-sm font-mono font-bold text-pink-400 border border-pink-400/50 rounded hover:bg-pink-400/10 transition-colors flex-1 text-center">
+                                Download Cleaned Data
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cyclistic Project -->
+                    <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
+                        <div class="p-8 flex-grow">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 rounded-lg bg-network-accent/10 flex items-center justify-center text-network-accent text-xl border border-network-accent/20">
+                                    <i class="fa-solid fa-bicycle"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-network-accent transition-colors">Cyclistic Bike-Share Strategy</h3>
+                            <p class="text-network-muted mb-4 text-sm leading-relaxed">
+                                Developed a targeted growth strategy by analyzing user behavior patterns among annual members vs. casual riders.
+                            </p>
+                            <p class="text-network-muted text-sm leading-relaxed mb-6">
+                                <strong>Architecture:</strong> Extracted and structured large, complex datasets using SQL in Google BigQuery, followed by the creation of dynamic, interactive dashboards in Tableau.
+                            </p>
+                            <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">SQL</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-network-accent font-mono">Data Querying</span>
+                                </div>
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">Tableau</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-network-accent font-mono">Data Viz</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
+                            <a href="https://www.figma.com/deck/Uan7wt1hmQQa6gFCCPFCCf/Data-Analytics-Presentation?node-id=1-259&t=W4tfZbXzNGeAej2O-1" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-network-accent rounded hover:bg-[#5cf2fa] transition-colors w-full text-center">
+                                View Presentation
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Retrofit PR Project -->
+                    <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
+                        <div class="p-8 flex-grow">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl border border-amber-500/20">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">Retrofit Public Relations</h3>
+                            <p class="text-network-muted mb-4 text-sm leading-relaxed">
+                                Designed a comprehensive public relations campaign and communication framework to boost brand visibility.
+                            </p>
+                            <p class="text-network-muted text-sm leading-relaxed mb-6">
+                                <strong>Architecture:</strong> Leveraged mass communication principles and audience demographic data to craft targeted messaging strategies, bridging the gap between brand intent and audience perception.
+                            </p>
+                            <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">Comms</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-amber-400 font-mono">Strategy</span>
+                                </div>
+                                <div>
+                                    <span class="block font-mono text-xl font-bold text-white">Brand</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-amber-400 font-mono">Visibility</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
+                            <a href="https://drive.google.com/file/d/1hMOuQdx6_WLtNTU3A452sjUcH1J8dJC6/view?usp=sharing" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-amber-400 rounded hover:bg-amber-300 transition-colors w-full text-center">
+                                View PR Report
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 relative z-10">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-16 flex items-center gap-4 justify-center text-center">
+                    <span class="text-network-accent font-mono text-xl">03.</span> Career Network
+                </h2>
+
+                <div class="relative">
+                    <div class="timeline-line"></div>
+
+                    <!-- Loews Hotel -->
+                    <div class="relative pl-12 mb-16 group">
+                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-accent group-hover:bg-network-accent group-hover:shadow-[0_0_10px_rgba(0,240,255,0.8)] transition-all duration-300 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl border border-network-accent/20">
+                            <span class="font-mono text-sm text-network-accent mb-2 block">Mar 2019 - Present</span>
+                            <h3 class="font-display text-2xl font-bold text-white">Trainer</h3>
+                            <div class="font-mono text-network-muted text-sm mb-4">Loews Hotel & Co | Orlando, FL</div>
+                            <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
+                                <li>Directed comprehensive training programs for 30+ staff members to standardize service excellence, driving a 100% success rate in trainee productivity which allowed several team members to earn Employee of the Month honors and secure internal promotions.</li>
+                                <li>Managed inventory and ordering processes using precise tracking tools to ensure 100% supply availability, driving a 10% reduction in waste which allowed the team to reallocate budget toward high-impact guest services.</li>
+                                <li>Shadowed the Business Intelligence department to analyze operational datasets, identifying key performance trends which allowed the team to integrate data-driven insights into long-term strategic planning.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- S. Charles Trucking -->
+                    <div class="relative pl-12 mb-16 group">
+                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-secondary group-hover:bg-network-secondary group-hover:shadow-[0_0_10px_rgba(129,140,248,0.8)] transition-all duration-300 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl">
+                            <span class="font-mono text-sm text-network-secondary mb-2 block">Jan 2022 - Jul 2025</span>
+                            <h3 class="font-display text-2xl font-bold text-white">Logistics Coordinator</h3>
+                            <div class="font-mono text-network-muted text-sm mb-4">S. Charles Trucking LLC | Remote</div>
+                            <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
+                                <li>Optimized logistical workflows and vendor communication for 30+ clients, achieving a 15% reduction in service delays and ensuring the consistent flow of inventory across the supply chain.</li>
+                                <li>Analyzed shipment tracking data and delivery performance metrics to identify operational risks, enabling proactive routing adjustments that improved overall efficiency by 10%.</li>
+                                <li>Maintained organized logistics records for 50+ weekly shipments in Excel to ensure 100% data accuracy for month end financial reporting, which proved critical for identifying and mitigating any annual billing discrepancies.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 84 Gem -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-slate-500 group-hover:bg-slate-400 transition-all duration-300 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl opacity-80 hover:opacity-100 transition-opacity">
+                            <span class="font-mono text-sm text-slate-400 mb-2 block">Aug 2021 - Dec 2021</span>
+                            <h3 class="font-display text-xl font-bold text-white">Social Media Intern</h3>
+                            <div class="font-mono text-network-muted text-sm mb-4">84 Gem | Remote</div>
+                            <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
+                                <li>Analyzed native platform performance metrics to monitor engagement trends, identifying high-performing content that boosted impressions by 20%, significantly increasing brand awareness and follower growth.</li>
+                                <li>Optimized multi-platform strategy across Instagram, Snapchat, Pinterest, and Facebook by scaling high-performing visual content, resulting in a measurable increase in link-in-bio clicks.</li>
+                                <li>Leveraged audience demographic data to identify potential strategic partners, providing the research necessary to expand brand reach.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-slate-800 relative z-10 bg-[#04070a]/90 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Establish Connection</h2>
+            <p class="text-network-muted mb-8 max-w-md mx-auto">Ready to collaborate on data infrastructure, analytics roles, or operational strategy.</p>
+            
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.linkedin.com/in/jean-bernard-st-charles/" target="_blank" aria-label="LinkedIn" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" aria-label="GitHub" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:jeanbernard319@gmail.com" aria-label="Email" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+            
+            <p class="font-mono text-xs text-slate-500 uppercase tracking-widest">&copy; 2026 Jean Bernard St. Charles. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('networkCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let width, height;
+            let particles = [];
+            
+            // Configuration for network
+            const config = {
+                particleCount: 80,
+                particleColor: 'rgba(0, 240, 255, 0.5)',
+                lineColor: 'rgba(0, 240, 255, 0.15)',
+                particleRadius: 1.5,
+                maxDistance: 150,
+                mouseDistance: 200,
+                speed: 0.5
+            };
+
+            const mouse = {
+                x: null,
+                y: null
+            };
+
+            function init() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                
+                // Adjust particle count based on screen size
+                config.particleCount = Math.floor((width * height) / 15000);
+                particles = [];
+                
+                for (let i = 0; i < config.particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * config.speed;
+                    this.vy = (Math.random() - 0.5) * config.speed;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > height) this.vy = -this.vy;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, config.particleRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = config.particleColor;
+                    ctx.fill();
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    // Connect particles to each other
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < config.maxDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = config.lineColor;
+                            ctx.lineWidth = 1 - (distance / config.maxDistance);
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+
+                    // Connect particles to mouse
+                    if (mouse.x != null && mouse.y != null) {
+                        const dxMouse = particles[i].x - mouse.x;
+                        const dyMouse = particles[i].y - mouse.y;
+                        const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                        
+                        if (distanceMouse < config.mouseDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 240, 255, ${0.3 * (1 - distanceMouse / config.mouseDistance)})`;
+                            ctx.lineWidth = 1.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+
+            // Event Listeners
+            window.addEventListener('resize', init);
+            
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+            
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Start
+            init();
+            animate();
+        };
+    </script>
+</body>
+</html>
