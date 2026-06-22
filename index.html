@@ -107,6 +107,32 @@
             width: 2px;
             background: linear-gradient(to bottom, rgba(0, 240, 255, 0.5), rgba(129, 140, 248, 0.2));
         }
+
+        /* Tech badge with logo */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f0ff;
+            background-color: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+        }
+
+        .tech-badge img {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-network-accent selection:text-black">
@@ -138,13 +164,13 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
                 <div class="max-w-3xl">
                     <span class="font-mono text-network-accent mb-4 block tracking-wider uppercase text-sm">
-                        <i class="fa-solid fa-bolt mr-2"></i>Systems // Data // Strategy // Marketing
+                        <i class="fa-solid fa-bolt mr-2"></i>Systems // Data // Strategy // Marketing & Advertising
                     </span>
                     <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
                         Connecting the dots between <span class="text-transparent bg-clip-text bg-gradient-to-r from-network-accent to-network-secondary text-glow">raw data</span> and strategic operations.
                     </h1>
                     <p class="text-xl text-network-muted mb-10 leading-relaxed max-w-2xl font-light">
-                        I blend a deep background in logistics and hospitality operations with rigorous data analytics and marketing strategy to build systems that optimize performance, uncover market gaps, and drive strategic growth.
+                        I blend a deep background in logistics and hospitality operations with rigorous data analytics, marketing strategy, and advertising expertise to build systems that optimize performance, uncover market gaps, and drive strategic growth.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#projects" class="group relative px-6 py-3 font-mono text-sm font-bold text-black bg-network-accent rounded overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.4)]">
@@ -178,13 +204,34 @@
                             Proficient in building the end-to-end data lifecycle, from extraction and structuring to visualization and strategic deployment.
                         </p>
                         <div class="flex flex-wrap gap-3">
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">SQL</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Python</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Google BigQuery</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Tableau</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Advanced Excel</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Data Cleaning</span>
-                            <span class="px-3 py-1 text-xs font-mono text-network-accent bg-network-accent/10 rounded-full border border-network-accent/20">Logistics Planning</span>
+                            <span class="tech-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL">
+                                SQL
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+                                Python
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://www.gstatic.com/devrel-devsite/prod/v2d3d0c053cb036e4d7e1e84dc7146c18920ce1e920cd0d3f1e9c2e91c9c4a4465ac6b9df629b8c10ac1bfe634dae43eb852b57d43bd158b0fbd89fb69b1c48" alt="BigQuery">
+                                BigQuery
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://www.tableau.com/sites/default/files/pages/2021-04/Tableau%20Logo%20for%20Light%20BG.png" alt="Tableau">
+                                Tableau
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftexcel/microsoftexcel-original.svg" alt="Excel">
+                                Excel
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Data Cleaning">
+                                Data Cleaning
+                            </span>
+                            <span class="tech-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2436/2436481.png" alt="Logistics">
+                                Logistics
+                            </span>
                         </div>
                     </div>
 
@@ -247,9 +294,7 @@
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
-                                <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl border border-pink-500/20">
-                                    <i class="fa-solid fa-heart-pulse"></i>
-                                </div>
+                                <img src="https://www.bellabeat.com/cdn/shop/files/BB_logo.png?v=1656005140" alt="Bellabeat" class="w-12 h-12 object-contain" />
                             </div>
                             <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">Bellabeat Competitive Analysis</h3>
                             <p class="text-network-muted mb-4 text-sm leading-relaxed">
@@ -283,9 +328,7 @@
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
-                                <div class="w-12 h-12 rounded-lg bg-network-accent/10 flex items-center justify-center text-network-accent text-xl border border-network-accent/20">
-                                    <i class="fa-solid fa-bicycle"></i>
-                                </div>
+                                <img src="https://www.cyclistics.net/media/company-logo.png" alt="Cyclistic" class="w-12 h-12 object-contain" />
                             </div>
                             <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-network-accent transition-colors">Cyclistic Bike-Share Strategy</h3>
                             <p class="text-network-muted mb-4 text-sm leading-relaxed">
@@ -316,9 +359,7 @@
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
-                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl border border-amber-500/20">
-                                    <i class="fa-solid fa-bullhorn"></i>
-                                </div>
+                                <img src="https://retrofit.fit/cdn/shop/files/RetrofitFullLogo_350x_9b8e8c21-a583-4b68-b33e-31b0ba1e7968.png" alt="Retrofit" class="w-12 h-12 object-contain" />
                             </div>
                             <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">Retrofit Public Relations</h3>
                             <p class="text-network-muted mb-4 text-sm leading-relaxed">
