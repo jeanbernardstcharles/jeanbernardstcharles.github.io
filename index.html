@@ -35,7 +35,6 @@
     </script>
 
     <style>
-        /* Custom Glassmorphism and Background Styles */
         body {
             background-color: #070b14;
             color: #e2e8f0;
@@ -55,7 +54,7 @@
         }
 
         .glass-card {
-            background: var(--tw-colors-network-card);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -78,27 +77,15 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Glowing text effect for specific accents */
         .text-glow {
             text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #070b14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #38bdf8;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070b14; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
 
-        /* Timeline specific styles */
         .timeline-line {
             position: absolute;
             left: 1.25rem;
@@ -141,13 +128,13 @@
                         <i class="fa-solid fa-bolt mr-2"></i>Systems // Data // Strategy // Marketing
                     </span>
                     <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-                        Connecting the dots between <span class="text-transparent bg-clip-text bg-gradient-to-r from-network-accent to-network-secondary text-glow">raw data</span> and strategic operations.
+                        Connecting the dots between <span class="text-transparent bg-clip-text bg-gradient-to-r from-network-accent to-network-secondary text-glow">raw data</span> and strategic vision.
                     </h1>
                     <p class="text-xl text-network-muted mb-10 leading-relaxed max-w-2xl font-light">
-                        I blend a deep background in logistics and hospitality operations with rigorous data analytics and marketing strategy to build systems that optimize performance, uncover market gaps, and drive strategic growth.
+                        I blend a deep background in logistics and hospitality operations with rigorous data analytics and marketing strategy to build systems that optimize performance, uncover market insights, and drive growth.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#projects" class="group relative px-6 py-3 font-mono text-sm font-bold text-black bg-network-accent rounded overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                        <a href="#projects" class="group relative px-6 py-3 font-mono text-sm font-bold text-black bg-network-accent rounded overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.3)]">
                             <span class="relative z-10">Explore the Network</span>
                         </a>
                         <a href="#experience" class="px-6 py-3 font-mono text-sm font-bold text-network-text border border-network-muted rounded hover:border-network-accent hover:text-network-accent transition-all duration-300">
@@ -166,7 +153,6 @@
                 </h2>
                 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Technical Infrastructure -->
                     <div class="glass-card rounded-xl p-8">
                         <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-700/50">
                             <div class="w-12 h-12 rounded-lg bg-network-accent/10 flex items-center justify-center text-network-accent text-xl">
@@ -188,7 +174,6 @@
                         </div>
                     </div>
 
-                    <!-- Education -->
                     <div class="glass-card rounded-xl p-8">
                         <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-700/50">
                             <div class="w-12 h-12 rounded-lg bg-network-secondary/10 flex items-center justify-center text-network-secondary text-xl">
@@ -211,7 +196,7 @@
                                 <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-accent"></div>
                                 <div class="flex items-start justify-between flex-wrap gap-2">
                                     <h4 class="text-white font-semibold">Google Data Analytics Certificate</h4>
-                                    <a href="https://coursera.org/verify/697TOE4QZVVO" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 border border-network-accent/30 rounded hover:bg-network-accent hover:text-black transition-colors">
+                                    <a href="https://coursera.org/verify/697TOE4QZVVO" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 rounded border border-network-accent/20">
                                         <i class="fa-solid fa-check-circle"></i> VERIFY
                                     </a>
                                 </div>
@@ -222,7 +207,7 @@
                                 <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-network-accent"></div>
                                 <div class="flex items-start justify-between flex-wrap gap-2">
                                     <h4 class="text-white font-semibold">Google AI Essentials Specialization</h4>
-                                    <a href="https://coursera.org/verify/specialization/01USTQPNNX37" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 border border-network-accent/30 rounded hover:bg-network-accent hover:text-black transition-colors">
+                                    <a href="https://coursera.org/verify/specialization/01USTQPNNX37" target="_blank" class="flex items-center gap-1 px-2 py-1 text-[10px] font-mono text-network-accent bg-network-accent/10 rounded border border-network-accent/20">
                                         <i class="fa-solid fa-check-circle"></i> VERIFY
                                     </a>
                                 </div>
@@ -242,8 +227,6 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
-
-                    <!-- Bellabeat Project -->
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
@@ -256,7 +239,7 @@
                                 Managed the end-to-end strategy for the IVY Wellness Coach, from hands-on data processing to final budget allocation.
                             </p>
                             <p class="text-network-muted text-sm leading-relaxed mb-6">
-                                <strong>Architecture:</strong> Personally cleaned and structured raw multi-channel qualitative data. This deep-dive into the data directly informed the strategic roadmap, allocating a $75,000 Q2 marketing budget.
+                                <strong>Architecture:</strong> Personally cleaned and structured raw multi-channel qualitative data. This deep-dive into the data directly informed the strategic roadmap.
                             </p>
                             <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
                                 <div>
@@ -270,16 +253,15 @@
                             </div>
                         </div>
                         <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
-                            <a href="https://canva.link/xb75zaazhiy2std" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-pink-400 rounded hover:bg-pink-300 transition-colors flex-1 text-center">
+                            <a href="https://canva.link/xb75zaazhiy2std" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-pink-400 rounded hover:bg-pink-300 transition-colors">
                                 View Case Study
                             </a>
-                            <a href="IVY_Campaign_Q2_Analysis_Full_Data.xlsx" download class="px-4 py-2 text-sm font-mono font-bold text-pink-400 border border-pink-400/50 rounded hover:bg-pink-400/10 transition-colors flex-1 text-center">
+                            <a href="IVY_Campaign_Q2_Analysis_Full_Data.xlsx" download class="px-4 py-2 text-sm font-mono font-bold text-pink-400 border border-pink-400/50 rounded hover:bg-pink-400/10 transition-colors">
                                 Download Cleaned Data
                             </a>
                         </div>
                     </div>
 
-                    <!-- Cyclistic Project -->
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
@@ -292,7 +274,7 @@
                                 Developed a targeted growth strategy by analyzing user behavior patterns among annual members vs. casual riders.
                             </p>
                             <p class="text-network-muted text-sm leading-relaxed mb-6">
-                                <strong>Architecture:</strong> Extracted and structured large, complex datasets using SQL in Google BigQuery, followed by the creation of dynamic, interactive dashboards in Tableau.
+                                <strong>Architecture:</strong> Extracted and structured large, complex datasets using SQL in Google BigQuery, followed by the creation of dynamic, interactive dashboards.
                             </p>
                             <div class="flex gap-6 mt-auto pt-6 border-t border-slate-700/50">
                                 <div>
@@ -306,13 +288,12 @@
                             </div>
                         </div>
                         <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
-                            <a href="https://www.figma.com/deck/Uan7wt1hmQQa6gFCCPFCCf/Data-Analytics-Presentation?node-id=1-259&t=W4tfZbXzNGeAej2O-1" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-network-accent rounded hover:bg-[#5cf2fa] transition-colors w-full text-center">
+                            <a href="https://www.figma.com/deck/Uan7wt1hmQQa6gFCCPFCCf/Data-Analytics-Presentation?node-id=1-259&t=W4tfZbXzNGeAej2O-1" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-network-accent rounded hover:bg-cyan-300 transition-colors">
                                 View Presentation
                             </a>
                         </div>
                     </div>
 
-                    <!-- Retrofit PR Project -->
                     <div class="glass-card rounded-xl flex flex-col overflow-hidden group">
                         <div class="p-8 flex-grow">
                             <div class="flex justify-between items-start mb-6">
@@ -339,12 +320,11 @@
                             </div>
                         </div>
                         <div class="px-8 py-5 bg-slate-800/50 border-t border-slate-700/50 flex gap-3 flex-wrap">
-                            <a href="https://drive.google.com/file/d/1hMOuQdx6_WLtNTU3A452sjUcH1J8dJC6/view?usp=sharing" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-amber-400 rounded hover:bg-amber-300 transition-colors w-full text-center">
+                            <a href="https://drive.google.com/file/d/1hMOuQdx6_WLtNTU3A452sjUcH1J8dJC6/view?usp=sharing" target="_blank" class="px-4 py-2 text-sm font-mono font-bold text-black bg-amber-400 rounded hover:bg-amber-300 transition-colors">
                                 View PR Report
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -358,37 +338,34 @@
                 <div class="relative">
                     <div class="timeline-line"></div>
 
-                    <!-- Loews Hotel -->
                     <div class="relative pl-12 mb-16 group">
-                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-accent group-hover:bg-network-accent group-hover:shadow-[0_0_10px_rgba(0,240,255,0.8)] transition-all duration-300 z-10"></div>
+                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-accent group-hover:bg-network-accent group-hover:shadow-[0_0_10px_rgba(0,240,255,0.6)] transition-all duration-300 z-10"></div>
                         <div class="glass-card p-6 rounded-xl border border-network-accent/20">
                             <span class="font-mono text-sm text-network-accent mb-2 block">Mar 2019 - Present</span>
                             <h3 class="font-display text-2xl font-bold text-white">Trainer</h3>
                             <div class="font-mono text-network-muted text-sm mb-4">Loews Hotel & Co | Orlando, FL</div>
                             <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
-                                <li>Directed comprehensive training programs for 30+ staff members to standardize service excellence, driving a 100% success rate in trainee productivity which allowed several team members to earn Employee of the Month honors and secure internal promotions.</li>
-                                <li>Managed inventory and ordering processes using precise tracking tools to ensure 100% supply availability, driving a 10% reduction in waste which allowed the team to reallocate budget toward high-impact guest services.</li>
-                                <li>Shadowed the Business Intelligence department to analyze operational datasets, identifying key performance trends which allowed the team to integrate data-driven insights into long-term strategic planning.</li>
+                                <li>Directed comprehensive training programs for 30+ staff members to standardize service excellence, driving a 100% success rate in trainee productivity.</li>
+                                <li>Managed inventory and ordering processes using precise tracking tools to ensure 100% supply availability, driving a 10% reduction in waste.</li>
+                                <li>Shadowed the Business Intelligence department to analyze operational datasets, identifying key performance trends.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- S. Charles Trucking -->
                     <div class="relative pl-12 mb-16 group">
-                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-secondary group-hover:bg-network-secondary group-hover:shadow-[0_0_10px_rgba(129,140,248,0.8)] transition-all duration-300 z-10"></div>
+                        <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-network-secondary group-hover:bg-network-secondary group-hover:shadow-[0_0_10px_rgba(129,140,248,0.6)] transition-all duration-300 z-10"></div>
                         <div class="glass-card p-6 rounded-xl">
                             <span class="font-mono text-sm text-network-secondary mb-2 block">Jan 2022 - Jul 2025</span>
                             <h3 class="font-display text-2xl font-bold text-white">Logistics Coordinator</h3>
                             <div class="font-mono text-network-muted text-sm mb-4">S. Charles Trucking LLC | Remote</div>
                             <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
-                                <li>Optimized logistical workflows and vendor communication for 30+ clients, achieving a 15% reduction in service delays and ensuring the consistent flow of inventory across the supply chain.</li>
+                                <li>Optimized logistical workflows and vendor communication for 30+ clients, achieving a 15% reduction in service delays.</li>
                                 <li>Analyzed shipment tracking data and delivery performance metrics to identify operational risks, enabling proactive routing adjustments that improved overall efficiency by 10%.</li>
-                                <li>Maintained organized logistics records for 50+ weekly shipments in Excel to ensure 100% data accuracy for month end financial reporting, which proved critical for identifying and mitigating any annual billing discrepancies.</li>
+                                <li>Maintained organized logistics records for 50+ weekly shipments in Excel to ensure 100% data accuracy for month end financial reporting.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 84 Gem -->
                     <div class="relative pl-12 group">
                         <div class="absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full bg-network-bg border-2 border-slate-500 group-hover:bg-slate-400 transition-all duration-300 z-10"></div>
                         <div class="glass-card p-6 rounded-xl opacity-80 hover:opacity-100 transition-opacity">
@@ -396,13 +373,12 @@
                             <h3 class="font-display text-xl font-bold text-white">Social Media Intern</h3>
                             <div class="font-mono text-network-muted text-sm mb-4">84 Gem | Remote</div>
                             <ul class="space-y-3 text-sm text-network-muted leading-relaxed list-disc pl-4">
-                                <li>Analyzed native platform performance metrics to monitor engagement trends, identifying high-performing content that boosted impressions by 20%, significantly increasing brand awareness and follower growth.</li>
-                                <li>Optimized multi-platform strategy across Instagram, Snapchat, Pinterest, and Facebook by scaling high-performing visual content, resulting in a measurable increase in link-in-bio clicks.</li>
+                                <li>Analyzed native platform performance metrics to monitor engagement trends, boosting impressions by 20%.</li>
+                                <li>Optimized multi-platform strategy across Instagram, Snapchat, Pinterest, and Facebook by scaling high-performing visual content.</li>
                                 <li>Leveraged audience demographic data to identify potential strategic partners, providing the research necessary to expand brand reach.</li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -414,13 +390,13 @@
             <p class="text-network-muted mb-8 max-w-md mx-auto">Ready to collaborate on data infrastructure, analytics roles, or operational strategy.</p>
             
             <div class="flex justify-center gap-6 mb-8">
-                <a href="https://www.linkedin.com/in/jean-bernard-st-charles/" target="_blank" aria-label="LinkedIn" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                <a href="https://www.linkedin.com/in/jean-bernard-st-charles/" target="_blank" aria-label="LinkedIn" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent transition-all">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <a href="#" aria-label="GitHub" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                <a href="#" aria-label="GitHub" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent transition-all">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="mailto:jeanbernard319@gmail.com" aria-label="Email" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 text-xl">
+                <a href="mailto:jeanbernard319@gmail.com" aria-label="Email" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-network-muted hover:text-network-accent hover:border-network-accent transition-all">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
@@ -437,7 +413,6 @@
             let width, height;
             let particles = [];
             
-            // Configuration for network
             const config = {
                 particleCount: 80,
                 particleColor: 'rgba(0, 240, 255, 0.5)',
@@ -448,24 +423,16 @@
                 speed: 0.5
             };
 
-            const mouse = {
-                x: null,
-                y: null
-            };
+            const mouse = { x: null, y: null };
 
             function init() {
                 width = window.innerWidth;
                 height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
-                
-                // Adjust particle count based on screen size
                 config.particleCount = Math.floor((width * height) / 15000);
                 particles = [];
-                
-                for (let i = 0; i < config.particleCount; i++) {
-                    particles.push(new Particle());
-                }
+                for (let i = 0; i < config.particleCount; i++) particles.push(new Particle());
             }
 
             class Particle {
@@ -475,15 +442,12 @@
                     this.vx = (Math.random() - 0.5) * config.speed;
                     this.vy = (Math.random() - 0.5) * config.speed;
                 }
-
                 update() {
                     this.x += this.vx;
                     this.y += this.vy;
-
                     if (this.x < 0 || this.x > width) this.vx = -this.vx;
                     if (this.y < 0 || this.y > height) this.vy = -this.vy;
                 }
-
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, config.particleRadius, 0, Math.PI * 2);
@@ -494,17 +458,13 @@
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
-                
                 for (let i = 0; i < particles.length; i++) {
                     particles[i].update();
                     particles[i].draw();
-                    
-                    // Connect particles to each other
                     for (let j = i; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
-                        
                         if (distance < config.maxDistance) {
                             ctx.beginPath();
                             ctx.strokeStyle = config.lineColor;
@@ -514,13 +474,10 @@
                             ctx.stroke();
                         }
                     }
-
-                    // Connect particles to mouse
                     if (mouse.x != null && mouse.y != null) {
                         const dxMouse = particles[i].x - mouse.x;
                         const dyMouse = particles[i].y - mouse.y;
                         const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                        
                         if (distanceMouse < config.mouseDistance) {
                             ctx.beginPath();
                             ctx.strokeStyle = `rgba(0, 240, 255, ${0.3 * (1 - distanceMouse / config.mouseDistance)})`;
@@ -531,24 +488,13 @@
                         }
                     }
                 }
-                
                 requestAnimationFrame(animate);
             }
 
-            // Event Listeners
             window.addEventListener('resize', init);
-            
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.x;
-                mouse.y = e.y;
-            });
-            
-            window.addEventListener('mouseout', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
+            window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
 
-            // Start
             init();
             animate();
         };
